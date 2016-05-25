@@ -37,6 +37,9 @@ module:
     hic_k20dx: &module_hic_k20dx
         - records/rtos/rtos-cm3.yaml
         - records/hic_hal/k20dx.yaml
+    hic_k26f: &module_hic_k26f
+        - records/rtos/rtos-cm4.yaml
+        - records/hic_hal/k26f.yaml
     hic_kl26z: &module_hic_kl26z
         - records/rtos/rtos-cm0.yaml
         - records/hic_hal/kl26z.yaml
@@ -66,6 +69,10 @@ projects:
         - *module_bl
         - *module_hic_lpc4322
         - records/board/lpc4322_bl.yaml
+    k26f_bl:
+        - *module_bl
+        - *module_hic_k26f
+        - records/board/k26f_bl.yaml
     sam3u2c_bl:
         - *module_bl
         - *module_hic_sam3u2c
@@ -202,6 +209,10 @@ projects:
         - *module_if
         - *module_hic_k20dx
         - records/board/mimxrt1050_evk_qspi.yaml
+    k26f_frdmk32w042_if:
+        - *module_if
+        - *module_hic_k26f
+        - records/board/frdmk32w042.yaml
     lpc11u35_ff1705_l151_if:
         - *module_if
         - *module_hic_lpc11u35

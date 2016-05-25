@@ -55,6 +55,7 @@ PROJECT_RELEASE_INFO = {
     ("k20dx_mimxrt1020_evk_qspi_if",                True,       0x8000,     "bin"       ),
     ("k20dx_mimxrt1050_evk_hyper_if",               True,       0x8000,     "bin"       ),
     ("k20dx_mimxrt1050_evk_qspi_if",                True,       0x8000,     "bin"       ),
+    ("k26f_frdmk32w042_if",                         False,      0x8000,     "bin"       ),
     ("lpc11u35_archble_if",                         False,      0x0000,     "bin"       ),
     ("lpc11u35_archpro_if",                         False,      0x0000,     "bin"       ),
     ("lpc11u35_archmax_if",                         False,      0x0000,     "bin"       ),
@@ -127,6 +128,7 @@ SUPPORTED_CONFIGURATIONS = [
     (   0x217,      'k20dx_frdmk82f_if',                        'k20dx_bl',         'FRDM-K82F'                             ),
     (   0x220,      'k20dx_frdmkl46z_if',                       'k20dx_bl',         'FRDM-KL46Z'                            ),
     (   0x224,      'k20dx_frdmk28f_if',                        'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-K28F' when mbed-os supports this
+    (   0x225,      'k26f_frdmk32w042_if',                      'k26f_bl',          None                                    ),
     (   0x226,      'k20dx_mimxrt1020_evk_qspi_if',             'k20dx_bl',         None                                    ), # TODO - set target to 'MIMX6RT1050' when mbed-os supports this
     (   0x227,      'k20dx_mimxrt1050_evk_hyper_if',            'k20dx_bl',         None                                    ), # TODO - set target to 'MIMX6RT1050' when mbed-os supports this
     (   0x227,      'k20dx_mimxrt1050_evk_qspi_if',             'k20dx_bl',         None                                    ), # TODO - set target to 'MIMX6RT1050' when mbed-os supports this
@@ -228,12 +230,14 @@ SUPPORTED_CONFIGURATIONS = [
 
 # Add new HICs here
 HIC_STRING_TO_ID = {
-    'k20dx': 0x97969900,
-    'kl26z': 0x97969901,
-    'lpc11u35': 0x97969902,
-    'sam3u2c': 0x97969903,
-    'lpc4322': 0x97969905,
-    'stm32f103xb': 0x97969908,
+    'k20dx':        0x97969900,
+    'kl26z':        0x97969901,
+    'lpc11u35':     0x97969902,
+    'sam3u2c':      0x97969903,
+    'max32620':     0x97969904,
+    'lpc4322':      0x97969905,
+    'stm32f103xb':  0x97969908,
+    'k26f':         0x97969909,
 }
 
 BOARD_ID_LOCKED_WHEN_ERASED = set([
@@ -253,6 +257,7 @@ BOARD_ID_LOCKED_WHEN_ERASED = set([
     0x0213,  # FRDM-KE15Z
     0x0216,  # HVP-KE18F
     0x0217,  # FRDM-K82F
+    0x0225,  # FRDM-K32W042
     0x0261,  # FRDM-KL27Z
     0x0262,  # FRDM-KL43Z
     0x0218,  # FRDM-KL82Z
@@ -262,6 +267,7 @@ BOARD_ID_LOCKED_WHEN_ERASED = set([
 
 BOARD_ID_SUPPORTING_PAGE_ERASE = set([
     0x0214,  # HEXIWEAR
+    0x0225,  # FRDM-K32W042
     0x0226,  # MIMXRT1020 EVK
     0x0227,  # MIMXRT1050 EVK
     0x0240,  # K64F
