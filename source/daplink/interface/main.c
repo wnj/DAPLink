@@ -270,6 +270,8 @@ __task void main_task(void)
         if (flags & FLAGS_MAIN_POWERDOWN) {
             // Disable debug
             target_set_state(NO_DEBUG);
+            // Let HIC know that USB is being disconnected.
+            gpio_handle_usb_connected(false);
             // Disconnect USB
             usbd_connect(0);
             // Turn off LED
@@ -302,11 +304,12 @@ __task void main_task(void)
             switch (usb_state) {
                 case USB_DISCONNECTING:
                     usb_state = USB_DISCONNECTED;
+                    // Let HIC know that USB is being disconnected.
+                    gpio_handle_usb_connected(false);
                     usbd_connect(0);
                     break;
 
                 case USB_CONNECTING:
-
                     // Wait before connecting
                     if (DECZERO(usb_state_count) == 0) {
                         usbd_connect(1);
@@ -321,6 +324,10 @@ __task void main_task(void)
                             os_tsk_create_user(hid_process, DAP_TASK_PRIORITY, (void *)stk_dap_task, DAP_TASK_STACK);
                             thread_started = 1;
                         }
+
+                        // Let the HIC do anything it needs to once USB is configured, such as
+                        // enable power to the target now that high power has been negotiated.
+                        gpio_handle_usb_connected(true);
 
                         usb_state = USB_CONNECTED;
                     }

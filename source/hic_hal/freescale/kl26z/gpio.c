@@ -82,3 +82,7 @@ uint8_t gpio_get_sw_reset(void)
 {
     return (PIN_SW_RESET_GPIO->PDIR & PIN_SW_RESET) ? 1 : 0;
 }
+
+void gpio_handle_usb_connected(bool isConnected)
+{
+}
