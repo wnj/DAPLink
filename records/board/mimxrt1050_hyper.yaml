@@ -1,0 +1,7 @@
+common:
+    sources:
+        board:
+            - source/board/evk_mimxrt.c
+        target:
+            - source/target/freescale/mimxrt_hyper_flash/target.c
+            - source/target/freescale/target_reset_mimxrt.c
