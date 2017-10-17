@@ -49,6 +49,8 @@ PROJECT_RELEASE_INFO = {
     ("k20dx_frdmke15z_if",                          True,       0x8000,     "bin"       ),
     ("k20dx_twrke18f_if",                           True,       0x8000,     "bin"       ),
     ("k20dx_hvpke18f_if",                           True,       0x8000,     "bin"       ),
+    ("k20dx_mimxrt1050_hyper_if",                   True,       0x8000,     "bin"       ),
+    ("k20dx_mimxrt1050_qspi_if",                    True,       0x8000,     "bin"       ),
     ("lpc11u35_archble_if",                         False,      0x0000,     "bin"       ),
     ("lpc11u35_archpro_if",                         False,      0x0000,     "bin"       ),
     #("lpc11u35_archmax_if",                        False,      0x0000,     "bin"       ),  # Unsupported currently
@@ -95,6 +97,8 @@ SUPPORTED_CONFIGURATIONS = [
     (   0x217,      'k20dx_frdmk82f_if',                        'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-K82F' when mbed-os supports this
     (   0x220,      'k20dx_frdmkl46z_if',                       'k20dx_bl',         'FRDM-KL46Z'                            ),
     (   0x224,      'k20dx_frdmk28f_if',                        'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-K28F' when mbed-os supports this
+    (   0x225,      'k20dx_mimxrt1050_hyper_if',                'k20dx_bl',         None                                    ), # TODO - set target to 'MIMX6RT1050' when mbed-os supports this
+    (   0x225,      'k20dx_mimxrt1050_qspi_if',                 'k20dx_bl',         None                                    ), # TODO - set target to 'MIMX6RT1050' when mbed-os supports this
     (   0x230,      'k20dx_frdmk20dx_if',                       'k20dx_bl',         'FRDM-K20D50M'                          ),
     (   0x231,      'k20dx_frdmk22f_if',                        'k20dx_bl',         'FRDM-K22F'                             ),
     (   0x240,      'k20dx_frdmk64f_if',                        'k20dx_bl',         'FRDM-K64F'                             ),
@@ -105,7 +109,7 @@ SUPPORTED_CONFIGURATIONS = [
     (   0x218,      'k20dx_frdmkl82z_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-KL82Z' when mbed-os supports this
     (   0x311,      'k20dx_frdmk66f_if',                        'k20dx_bl',         None                                    ), # TODO - set target to 'FRDM-K66F' when mbed-os supports this
     (   0x350,      'k20dx_xdot_l151_if',                       'k20dx_bl',         None                                    ), # TODO - set target to 'MTS-xDot-L151CC' when mbed-os supports this
-    (   0x8080,     'lpc11u35_ff1705_l151_if',                  None,               'L-TEK-FF1705'                          ),  
+    (   0x8080,     'lpc11u35_ff1705_l151_if',                  None,               'L-TEK-FF1705'                          ),
     (   0x824,      'lpc11u35_lpc824xpresso_if',                None,               'LPCXpresso824-MAX'                     ),
     (   0x1017,     'lpc11u35_hrm1017_if',                      None,               'mbed-HRM1017'                          ),
     (   0x1018,     'lpc11u35_ssci824_if',                      None,               'Switch-Science-mbed-LPC824'            ),
