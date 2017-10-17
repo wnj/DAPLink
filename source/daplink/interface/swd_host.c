@@ -51,9 +51,7 @@
 #define MAX_SWD_RETRY 100//10
 #define MAX_TIMEOUT   1000000  // Timeout for syscalls on target
 
-#if defined(TARGET_MIMXRT1050)
-#define SOFT_RESET  VECTRESET
-#else
+#if !defined(SOFT_RESET)
 #define SOFT_RESET  SYSRESETREQ
 
 // Some targets require a soft reset for flash programming (RESET_PROGRAM).
