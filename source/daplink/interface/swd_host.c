@@ -51,7 +51,11 @@
 #define MAX_SWD_RETRY 100//10
 #define MAX_TIMEOUT   1000000  // Timeout for syscalls on target
 
+#if defined(TARGET_MIMXRT1050)
+#define SOFT_RESET  VECTRESET
+#else
 #define SOFT_RESET  SYSRESETREQ
+
 // Some targets require a soft reset for flash programming (RESET_PROGRAM).
 // DAP operations as they are controlled by the remote debugger.
 #if defined(BOARD_BAMBINO_210) || defined(BOARD_BAMBINO_210E) || defined(TARGET_NRF51822)
@@ -62,6 +66,8 @@
 // For some Cortex-M devices, VECTRESET is the only way to reset the core.
 // VECTRESET is not supported on Cortex-M0 and Cortex-M1 cores.
 #define SOFT_RESET  VECTRESET
+#endif
+
 #endif
 
 typedef struct {
