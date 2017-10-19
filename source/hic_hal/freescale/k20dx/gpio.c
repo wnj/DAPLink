@@ -67,24 +67,31 @@ void gpio_init(void)
     }
 }
 
-void gpio_handle_usb_connected(bool isConnected)
+void gpio_handle_usb_connected(gpio_usb_connect_state_t state)
 {
     if (!daplink_is_bootloader()) {
-        if (isConnected) {
-            // enable power switch
-            PIN_POWER_EN_GPIO->PSOR = PIN_POWER_EN;
+        switch (state) {
+            case GPIO_USB_CONNECTED:
+            case GPIO_USB_CONNECT_TIMED_OUT:
+                // enable power switch
+                PIN_POWER_EN_GPIO->PSOR = PIN_POWER_EN;
 
-            // Let the voltage rails stabilize.  This is especailly important
-            // during software resets, since the target's 3.3v rail can take
-            // 20-50ms to drain.  During this time the target could be driving
-            // the reset pin low, causing the bootloader to think the reset
-            // button is pressed.
-            // Note: With optimization set to -O2 the value 1000000 delays for ~85ms
-            busy_wait(1000000);
-        }
-        else {
-            // disable power switch
-            PIN_POWER_EN_GPIO->PCOR = PIN_POWER_EN;
+                // Let the voltage rails stabilize.  This is especailly important
+                // during software resets, since the target's 3.3v rail can take
+                // 20-50ms to drain.  During this time the target could be driving
+                // the reset pin low, causing the bootloader to think the reset
+                // button is pressed.
+                // Note: With optimization set to -O2 the value 1000000 delays for ~85ms
+                busy_wait(1000000);
+                break;
+
+            case GPIO_USB_DISCONNECTED:
+                // disable power switch
+                PIN_POWER_EN_GPIO->PCOR = PIN_POWER_EN;
+                break;
+
+            default:
+                break;
         }
     }
 }
