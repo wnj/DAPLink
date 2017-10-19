@@ -3,7 +3,7 @@ common:
         - SOFT_RESET=VECTRESET
     sources:
         board:
-            - source/board/evk_mimxrt.c
+            - source/board/mimxrt1050_evk.c
         target:
-            - source/target/freescale/mimxrt_hyper_flash/target.c
+            - source/target/freescale/mimxrt1050_hyper_flash/target.c
             - source/target/freescale/target_reset_mimxrt.c

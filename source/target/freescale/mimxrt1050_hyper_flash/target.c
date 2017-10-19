@@ -1,6 +1,6 @@
 /**
  * @file    target.c
- * @brief   Target information for the k22f
+ * @brief   Target information for the i.MXRT1050
  *
  * DAPLink Interface Firmware
  * Copyright (c) 2009-2016, ARM Limited, All Rights Reserved
@@ -26,8 +26,8 @@
 
 // target information
 target_cfg_t target_device = {
-    .sector_size    = KB(4),
-    .sector_cnt     = 2048,
+    .sector_size    = KB(1),
+    .sector_cnt     = 1024,
     .flash_start    = 0x60002000,
     .flash_end      = 0x60002000 + MB(64),
     .ram_start      = 0x20000000,

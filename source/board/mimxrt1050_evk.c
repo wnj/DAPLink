@@ -1,6 +1,6 @@
 /**
- * @file    target.c
- * @brief   Target information for the k22f
+ * @file    mimxrt1050_evk.c
+ * @brief   board ID for the NXP MIMXRT1050-EVK board
  *
  * DAPLink Interface Firmware
  * Copyright (c) 2009-2016, ARM Limited, All Rights Reserved
@@ -19,18 +19,17 @@
  * limitations under the License.
  */
 
-#include "target_config.h"
+#include "virtual_fs.h"
+const char *board_id = "0225";
 
-// The file flash_blob.c must only be included in target.c
-#include "flash_blob.c"
-
-// target information
-target_cfg_t target_device = {
-    .sector_size    = KB(1),
-    .sector_cnt     = 1024,
-    .flash_start    = 0x60002000,
-    .flash_end      = 0x60002000 + MB(64),
-    .ram_start      = 0x20000000,
-    .ram_end        = 0x20000000 + MB(64),
-    .flash_algo     = (program_target_t *) &flash,
-};
+// Override default behavior
+//
+// URL_NAME and DRIVE_NAME must be 11 characters excluding
+// the null terminated character
+// Note - 4 byte alignemnt required as workaround for ARMCC compiler bug with weak references
+__attribute__((aligned(4)))
+const vfs_filename_t daplink_url_name =       "PRODINFOHTM";
+__attribute__((aligned(4)))
+const vfs_filename_t daplink_drive_name =     "RT1050-EVK";
+__attribute__((aligned(4)))
+const char *const daplink_target_url = "http://www.nxp.com/imxrt1050evk";

@@ -169,14 +169,14 @@ projects:
         - *module_if
         - *module_hic_k20dx
         - records/board/xDot-L151.yaml
-    k20dx_mimxrt1050_hyper_if:
+    k20dx_mimxrt1050_evk_hyper_if:
         - *module_if
         - *module_hic_k20dx
-        - records/board/mimxrt1050_hyper.yaml
-    k20dx_mimxrt1050_qspi_if:
+        - records/board/mimxrt1050_evk_hyper.yaml
+    k20dx_mimxrt1050_evk_qspi_if:
         - *module_if
         - *module_hic_k20dx
-        - records/board/mimxrt1050_qspi.yaml
+        - records/board/mimxrt1050_evk_qspi.yaml
     lpc11u35_ff1705_l151_if:
         - *module_if
         - *module_hic_lpc11u35
@@ -320,7 +320,7 @@ projects:
     lpc11u35_vbluno51_if:
         - *module_if
         - *module_hic_lpc11u35
-        - records/board/vbluno51.yaml    
+        - records/board/vbluno51.yaml
     lpc11u35_mtconnect04s_if:
         - *module_if
         - *module_hic_lpc11u35

@@ -1,6 +1,6 @@
 /**
- * @file    target_reset_mimxrt.c
- * @brief   Target reset for the i.MX RT series
+ * @file    target.c
+ * @brief   Target information for the i.MXRT1050
  *
  * DAPLink Interface Firmware
  * Copyright (c) 2009-2016, ARM Limited, All Rights Reserved
@@ -19,36 +19,18 @@
  * limitations under the License.
  */
 
-#include "target_reset.h"
-#include "swd_host.h"
-#include "info.h"
+#include "target_config.h"
 
+// The file flash_blob.c must only be included in target.c
+#include "flash_blob.c"
 
-void target_before_init_debug(void)
-{
-    swd_set_target_reset(0);
-}
-
-void prerun_target_config(void)
-{
-    target_set_state(RESET_RUN);
-}
-
-void board_init(void)
-{
-}
-
-uint8_t target_unlock_sequence(void)
-{
-    return 1;
-}
-
-uint8_t security_bits_set(uint32_t addr, uint8_t *data, uint32_t size)
-{
-    return 0;
-}
-
-uint8_t target_set_state(TARGET_RESET_STATE state)
-{
-    return swd_set_target_state_sw(state);
-}
+// target information
+target_cfg_t target_device = {
+    .sector_size    = KB(4),
+    .sector_cnt     = 2048,
+    .flash_start    = 0x60002000,
+    .flash_end      = 0x60002000 + MB(64),
+    .ram_start      = 0x20000000,
+    .ram_end        = 0x20000000 + MB(64),
+    .flash_algo     = (program_target_t *) &flash,
+};
