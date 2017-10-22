@@ -107,6 +107,6 @@ uint8_t gpio_get_sw_reset()
     return (PIN_RESET_IN_FWRD_PORT->PIO_PDSR & PIN_RESET_IN_FWRD) != 0;
 }
 
-void gpio_handle_usb_connected(gpio_usb_connect_state_t state)
+void gpio_set_board_power(bool powerEnabled)
 {
 }

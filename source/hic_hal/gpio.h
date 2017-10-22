@@ -34,15 +34,8 @@ typedef enum led_state {
     GPIO_LED_ON
 } gpio_led_state_t;
 
-// States for USB connection notification.
-typedef enum gpio_usb_connect_state {
-    GPIO_USB_DISCONNECTED = 0,
-    GPIO_USB_CONNECTED,
-    GPIO_USB_CONNECT_TIMED_OUT,
-} gpio_usb_connect_state_t;
-
 void gpio_init(void);
-void gpio_handle_usb_connected(gpio_usb_connect_state_t state);
+void gpio_set_board_power(bool powerEnabled);
 void gpio_set_hid_led(gpio_led_state_t state);
 void gpio_set_cdc_led(gpio_led_state_t state);
 void gpio_set_msc_led(gpio_led_state_t state);
