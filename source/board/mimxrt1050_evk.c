@@ -20,7 +20,7 @@
  */
 
 #include "virtual_fs.h"
-const char *board_id = "0225";
+const char *board_id = "0227";
 
 // Override default behavior
 //
