@@ -21,6 +21,13 @@
 
 //*** <<< Use Configuration Wizard in Context Menu >>> ***
 
+// ****
+// NOTE: The high speed packet sizes are set to the same size as full speed in this
+//       USB configuration in order to increase the number of devices that can
+//       simultaneously be connected to a single USB controller. With the maximium
+//       high speed packet sizes, only 1 or 2 devices can be connected.
+// ****
+
 // <e> USB Device
 //   <i> Enable the USB Device functionality
 #define USBD_ENABLE                 1
@@ -157,7 +164,7 @@
 #define USBD_HID_WMAXPACKETSIZE     64
 #define USBD_HID_BINTERVAL          1
 #define USBD_HID_HS_ENABLE          1
-#define USBD_HID_HS_WMAXPACKETSIZE  1024 //| (2<<11)
+#define USBD_HID_HS_WMAXPACKETSIZE  64
 #define USBD_HID_HS_BINTERVAL       1
 #define USBD_HID_STRDESC            L"CMSIS-DAP"
 #define USBD_WEBUSB_STRDESC         L"WebUSB: CMSIS-DAP"
@@ -208,7 +215,7 @@
 #define USBD_MSC_EP_BULKIN_STACK    0
 #define USBD_MSC_WMAXPACKETSIZE     64
 #define USBD_MSC_HS_ENABLE          1
-#define USBD_MSC_HS_WMAXPACKETSIZE  512
+#define USBD_MSC_HS_WMAXPACKETSIZE  64
 #define USBD_MSC_HS_BINTERVAL       0
 #define USBD_MSC_STRDESC            L"USB_MSC"
 // Make sure changes to USBD_MSC_INQUIRY_DATA are coordinated with mbed-ls
@@ -328,14 +335,14 @@
 #define USBD_CDC_ACM_WMAXPACKETSIZE     16
 #define USBD_CDC_ACM_BINTERVAL          32
 #define USBD_CDC_ACM_HS_ENABLE          1
-#define USBD_CDC_ACM_HS_WMAXPACKETSIZE  64
+#define USBD_CDC_ACM_HS_WMAXPACKETSIZE  16
 #define USBD_CDC_ACM_HS_BINTERVAL       2
 #define USBD_CDC_ACM_EP_BULKIN          4
 #define USBD_CDC_ACM_EP_BULKOUT         4
 #define USBD_CDC_ACM_EP_BULKIN_STACK    0
 #define USBD_CDC_ACM_WMAXPACKETSIZE1    64
 #define USBD_CDC_ACM_HS_ENABLE1         1
-#define USBD_CDC_ACM_HS_WMAXPACKETSIZE1 512
+#define USBD_CDC_ACM_HS_WMAXPACKETSIZE1 64
 #define USBD_CDC_ACM_HS_BINTERVAL1      1
 #define USBD_CDC_ACM_CIF_STRDESC        L"mbed Serial Port"
 #define USBD_CDC_ACM_DIF_STRDESC        L"mbed Serial Port"
