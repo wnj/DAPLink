@@ -1,6 +1,6 @@
 /**
  * @file    target_board.h
- * @brief   
+ * @brief
  *
  * DAPLink Interface Firmware
  * Copyright (c) 2018-2019, ARM Limited, All Rights Reserved
@@ -25,27 +25,27 @@
 #include <stdint.h>
 #include "target_config.h"
 #include "target_reset.h"
-#include "virtual_fs.h" 
+#include "virtual_fs.h"
 
-// Flags for board_info 
-enum { 
+// Flags for board_info
+enum {
 	kEnablePageErase = 1,               /*!< Enable page programming and sector erase for drag and drop */
     kEnableUnderResetConnect = 1<<1,    /*!< Enable under reset connection when enabling debug mode */
 };
 
-typedef struct __attribute__((__packed__)) board_info { 
-    uint16_t infoVersion;               /*!< Version number of the board */ 
-    uint16_t family_id;                 /*!< Use to select or identify target family from defined target family or custom ones */ 
+typedef struct __attribute__((__packed__)) board_info {
+    uint16_t infoVersion;               /*!< Version number of the board */
+    uint16_t family_id;                 /*!< Use to select or identify target family from defined target family or custom ones */
     char board_id[5];                   /*!< 4-char board ID plus null terminator */
-    uint8_t _padding[3]; 
+    uint8_t _padding[3];
     uint32_t flags;                     /*!< Combination of kEnablePageErase and kEnableUnderResetConnect */
-    target_cfg_t *target_cfg;           /*!< Specific chip configuration for the target and enables MSD when non-NULL */ 
-     
-    // fields used by MSD 
+    target_cfg_t *target_cfg;           /*!< Specific chip configuration for the target and enables MSD when non-NULL */
+
+    // fields used by MSD
     vfs_filename_t daplink_url_name;    /*!< Customize the URL file name */
     vfs_filename_t daplink_drive_name;  /*!< Customize the MSD DAPLink drive name */
     char daplink_target_url[64];        /*!< Customize the target url in DETAILS.TXT */
-    
+
     // some specific board initilization
     void (*prerun_board_config)(void);                      /*!< Specific board debug/ID related initialization */
     void (*swd_set_target_reset)(uint8_t asserted);         /*!< Boards can customize how to send reset to the target precedence over target family */
