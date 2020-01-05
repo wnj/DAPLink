@@ -24,7 +24,7 @@
 #include "compiler.h"
 
 // Default empty board info.
-__WEAK __ALIGNED(4)
+__WEAK
 const board_info_t g_board_info = {
 		.infoVersion = 0x1234,
 		.board_id = "0000",

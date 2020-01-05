@@ -33,7 +33,7 @@ enum {
     kEnableUnderResetConnect = 1<<1,    /*!< Enable under reset connection when enabling debug mode */
 };
 
-typedef struct __attribute__((__packed__)) board_info {
+typedef struct board_info {
     uint16_t infoVersion;               /*!< Version number of the board */
     uint16_t family_id;                 /*!< Use to select or identify target family from defined target family or custom ones */
     char board_id[5];                   /*!< 4-char board ID plus null terminator */
