@@ -19,3 +19,22 @@ common:
             - source/rtos/rt_Timer.c
             - source/rtos/RTX_Config.c
             - source/rtos/cmsis_os2_port.c
+
+# Use irq_cm3 instead of irq_cm4f because DAPLink doesn't use float,
+# and the k20dx doesn't have the FP extension.
+tool_specific:
+    uvision:
+        sources:
+            rtos:
+                - source/rtos/cm3
+    make_armcc:
+        sources:
+            rtos:
+                - source/rtos/cm3
+    make_armclang:
+        sources:
+            rtos:
+                - source/rtos/cm3
+    make_gcc_arm:
+        sources:
+                - source/rtos/gcc/cm3
