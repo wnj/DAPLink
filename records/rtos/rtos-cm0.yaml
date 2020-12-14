@@ -35,15 +35,15 @@ tool_specific:
         sources:
             rtos:
                 - source/rtos/cm0
-    make_armcc:
+    armcc:
         sources:
             rtos:
                 - source/rtos/cm0
-    make_armclang:
+    armclang:
         sources:
             rtos:
                 - source/rtos/cm0
-    make_gcc_arm:
+    gcc_arm:
         sources:
             rtos:
                 - source/rtos/gcc/cm0
