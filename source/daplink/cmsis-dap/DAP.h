@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 2013-2019 ARM Limited. All rights reserved.
- * Copyright 2019, Cypress Semiconductor Corporation 
+ * Copyright 2019, Cypress Semiconductor Corporation
  * or a subsidiary of Cypress Semiconductor Corporation.
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -209,6 +209,7 @@ typedef struct {
   uint8_t     fast_clock;                       // Fast Clock Flag
   uint8_t     padding[2];
   uint32_t   clock_delay;                       // Clock Delay
+  uint32_t nominal_clock;                       // Nominal requested clock frequency in Hertz.
   uint32_t     timestamp;                       // Last captured Timestamp
   struct {                                      // Transfer Configuration
     uint8_t   idle_cycles;                      // Idle cycles after transfer
