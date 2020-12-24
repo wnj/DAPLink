@@ -5,7 +5,6 @@ common:
         - source/rtos
     sources:
         rtos:
-            - source/rtos/cm0
             - source/rtos/rt_Event.c
             - source/rtos/rt_List.c
             - source/rtos/rt_Mailbox.c
@@ -19,3 +18,20 @@ common:
             - source/rtos/rt_Timer.c
             - source/rtos/RTX_Config.c
             - source/rtos/cmsis_os2_port.c
+tool_specific:
+    uvision:
+        sources:
+            rtos:
+                - source/rtos/cm0
+    make_armcc:
+        sources:
+            rtos:
+                - source/rtos/cm0
+    make_armclang:
+        sources:
+            rtos:
+                - source/rtos/cm0
+    make_gcc_arm:
+        sources:
+            rtos:
+                - source/rtos/gcc/cm0
