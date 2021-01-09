@@ -14,3 +14,9 @@ common:
         target:
             - source/family/nordic/nrf5x/target.c
             - source/family/nordic/target_reset_nrf52.c
+
+tool_specific:
+    gcc_arm:
+        misc:
+            c_flags:
+                - -Wno-address-of-packed-member
